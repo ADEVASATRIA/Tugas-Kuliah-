@@ -1,3 +1,7 @@
+// TUGAS OPJECT ORIENTED PROGRAMING MEMBUAT PROGRAM ADMIN QUIZ
+// ADEVA SATRIA ARIF WIBAWA
+// 2502012464 - LA20
+
 package admin.quiz.game2;
 import java.util.Scanner;
 import java.util.*;
@@ -49,14 +53,15 @@ public class ADMINQUIZGAME2 {
         int ch;
         int nomor = 0; 
         do{
+            System.out.println("\n");
             System.out.println("================================");
             System.out.println("| GAME *************** #ADMIN  |");
             System.out.println("| *** WHO WANTS ************** |");
             System.out.println("| ************ TO BE MILIONERE |");
             System.out.println("================================");
-            System.out.println("| 1. Add Question  ");
-            System.out.println("| 2. Delete Question ");
-            System.out.println("| 3. Display The question ");
+            System.out.println("| 1. Tambahkan soal ");
+            System.out.println("| 2. Hapus Soal ");
+            System.out.println("| 3. Tampilkan soal ");
             System.out.println("| 0. EXIT");
             System.out.print("| Enter your choice : ");
 
@@ -64,8 +69,11 @@ public class ADMINQUIZGAME2 {
             
             switch(ch){
                 case 1:
+                    System.out.println("\n");
+                    System.out.println("==================================================");
+                    System.out.println("| Berikut merupakan tampilan Pengisian soal baru |");
+                    System.out.println("==================================================");
                     nomor++;
-                    System.out.println("\n\n");
                     System.out.print("Nomor soal : " + nomor + "\n");
                     System.out.print("Masukkan soal anda : ");
                     String question = s1.nextLine();
@@ -83,8 +91,23 @@ public class ADMINQUIZGAME2 {
                     c.add(new quiz(question,answer,answer2,answer3,answer4,correctanswer));
                     break;
                 case 2:
-                    System.out.println("========================================="); 
-                   
+                    
+                    if(nomor == 0){
+                        System.out.println("\n");
+                        System.out.println("=================================");
+                        System.out.println("| Pertanyaan tidak di temukan ! |");
+                        System.out.println("=================================");
+                        
+                    }else{
+                         c.removeAll(c);
+                         nomor = 0;
+                         System.out.println("\n");
+                         System.out.println("===================");
+                         System.out.println("| Delete berhasil |");
+                         System.out.println("===================");
+                            }
+                    
+                    
                     break;
                 case 3:
                     System.out.println("\n\n");
@@ -96,7 +119,7 @@ public class ADMINQUIZGAME2 {
                         System.out.println((i+1) + ". " + c.get(i).getquestion() + "\n" + 
                                 "   A. " + c.get(i).getanswer() + "\n" + "   B. " + c.get(i).getanswer2() + "\n" + 
                                 "   C. " + c.get(i).getanswer3() + "\n" + "   D. " + c.get(i).getanswer4());
-                        System.out.println("jawaban benar no " + (i+1) + " = " + c.get(i).getcorrectanswer() + "\n");
+                        System.out.println("      jawaban benar no " + (i+1) + " = " + c.get(i).getcorrectanswer() + "\n");
                         
                     }
                     
